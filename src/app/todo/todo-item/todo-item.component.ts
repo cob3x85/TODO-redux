@@ -3,7 +3,7 @@ import { Todo } from '../model/todo.model';
 import { FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppSate } from 'src/app/app.reducers';
-import { ToogleTodoAction, UpdateTodoAction, DeleteTodoAction } from '../todo.actions';
+import { ToggleTodoAction, UpdateTodoAction, DeleteTodoAction } from '../todo.actions';
 
 @Component({
   selector: 'app-todo-item',
@@ -26,7 +26,7 @@ export class TodoItemComponent implements OnInit {
     this.txtInput = new FormControl(this.todo.text, Validators.required);
 
     this.chkField.valueChanges.subscribe(() => {
-      const actionToogle = new ToogleTodoAction(this.todo.id);
+      const actionToogle = new ToggleTodoAction(this.todo.id);
 
       this.store.dispatch(actionToogle);
     });

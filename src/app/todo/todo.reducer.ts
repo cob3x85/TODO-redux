@@ -1,4 +1,4 @@
-import { Actions, ADD_TODO, TOOGLE_TODO, UPDATE_TODO, DELETE_TODO } from './todo.actions';
+import { Actions, ADD_TODO, TOGGLE_TODO, TOGGLE_ALL_TODO, UPDATE_TODO, DELETE_TODO } from './todo.actions';
 import { Todo } from './model/todo.model';
 
 const todo1 = new Todo('Vencer a Thanos');
@@ -16,7 +16,7 @@ export function todoReducer(state = stateInitial, action: Actions): Todo[] {
       const todo = new Todo(action.text);
       return [...state, todo];
 
-    case TOOGLE_TODO:
+    case TOGGLE_TODO:
 
       return state.map(todoEdit => {
         if (todoEdit.id === action.id) {
@@ -27,6 +27,15 @@ export function todoReducer(state = stateInitial, action: Actions): Todo[] {
         } else {
           return todoEdit;
         }
+      });
+
+    case TOGGLE_ALL_TODO:
+      return state.map(todoEdit => {
+
+        return {
+          ...todoEdit,
+          complete: action.completado
+        };
       });
 
     case UPDATE_TODO:

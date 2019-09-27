@@ -5,7 +5,8 @@ export class StoreModule { }
 
 export const ADD_TODO = '[TODO] Add todo item';
 export const COMPLETE_TODO = '[TODO] Complete todo item ';
-export const TOOGLE_TODO = '[TODO] Toogle todo';
+export const TOGGLE_TODO = '[TODO] Toggle todo';
+export const TOGGLE_ALL_TODO = '[TODO] Toggle All todo';
 export const UPDATE_TODO = '[TODO] Update todo';
 export const DELETE_TODO = '[TODO] Delete todo';
 
@@ -25,10 +26,17 @@ export class CompleteAction implements Action {
   }
 }
 
-export class ToogleTodoAction implements Action {
-  readonly type = TOOGLE_TODO;
+export class ToggleTodoAction implements Action {
+  readonly type = TOGGLE_TODO;
 
   constructor(public id: number) {
+  }
+}
+
+export class ToggleAllTodoAction implements Action {
+  readonly type = TOGGLE_ALL_TODO;
+
+  constructor(public completado: boolean) {
   }
 }
 
@@ -46,4 +54,4 @@ export class DeleteTodoAction implements Action {
   }
 }
 
-export type Actions = AddTodoAction | CompleteAction | ToogleTodoAction | UpdateTodoAction | DeleteTodoAction;
+export type Actions = AddTodoAction | CompleteAction | ToggleTodoAction | ToggleAllTodoAction | UpdateTodoAction | DeleteTodoAction;
