@@ -3,8 +3,7 @@ import { Store } from '@ngrx/store';
 import { AppSate } from 'src/app/app.reducers';
 import * as fromFilter from '../../filter/filter.actions';
 import { Todo } from '../model/todo.model';
-import { DeleteAllCompletedTodos } from '../todo.actions';
-
+import { DeleteAllCompletedTodosAction } from '../todo.actions';
 
 @Component({
   selector: 'app-todo-footer',
@@ -38,7 +37,7 @@ export class TodoFooterComponent implements OnInit {
   }
 
   clearCompleted() {
-    const deleteCompleted = new DeleteAllCompletedTodos();
+    const deleteCompleted = new DeleteAllCompletedTodosAction();
     this.store.dispatch(deleteCompleted);
   }
 
