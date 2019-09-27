@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { AppSate } from 'src/app/app.reducers';
 import * as fromFilter from '../../filter/filter.actions';
 import { Todo } from '../model/todo.model';
+import { DeleteAllCompletedTodos } from '../todo.actions';
 
 
 @Component({
@@ -34,6 +35,11 @@ export class TodoFooterComponent implements OnInit {
 
   contarPendientes(todos: Todo[]) {
     this.pendientes = todos.filter(todo => !todo.complete).length;
+  }
+
+  clearCompleted() {
+    const deleteCompleted = new DeleteAllCompletedTodos();
+    this.store.dispatch(deleteCompleted);
   }
 
 }

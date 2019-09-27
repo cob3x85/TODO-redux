@@ -1,4 +1,4 @@
-import { Actions, ADD_TODO, TOGGLE_TODO, TOGGLE_ALL_TODO, UPDATE_TODO, DELETE_TODO } from './todo.actions';
+import { Actions, ADD_TODO, TOGGLE_TODO, TOGGLE_ALL_TODO, UPDATE_TODO, DELETE_TODO, DeleteAllCompletedTodos, DELETE_ALL_COMPLETED_TODOS } from './todo.actions';
 import { Todo } from './model/todo.model';
 
 const todo1 = new Todo('Vencer a Thanos');
@@ -53,6 +53,9 @@ export function todoReducer(state = stateInitial, action: Actions): Todo[] {
 
     case DELETE_TODO:
       return state.filter(todoDelete => todoDelete.id !== action.id);
+
+    case DELETE_ALL_COMPLETED_TODOS:
+      return state.filter(todoPending => todoPending.complete === false);
 
     default:
       return state;
