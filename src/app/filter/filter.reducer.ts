@@ -13,6 +13,6 @@ export function filterReducer(state = initialState,
       return action.filter;
 
     default:
-      break;
+      return state;
   }
 }
