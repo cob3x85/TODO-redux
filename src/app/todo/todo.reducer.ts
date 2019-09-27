@@ -1,4 +1,4 @@
-import { Actions, ADD_TODO, TOGGLE_TODO, TOGGLE_ALL_TODO, UPDATE_TODO, DELETE_TODO, DeleteAllCompletedTodos, DELETE_ALL_COMPLETED_TODOS } from './todo.actions';
+import { Actions, ADD_TODO, TOGGLE_TODO, TOGGLE_ALL_TODO, UPDATE_TODO, DELETE_TODO, DELETE_ALL_COMPLETED_TODOS } from './todo.actions';
 import { Todo } from './model/todo.model';
 
 const todo1 = new Todo('Vencer a Thanos');
