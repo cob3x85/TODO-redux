@@ -1,9 +1,9 @@
 import { Actions, ADD_TODO, TOGGLE_TODO, TOGGLE_ALL_TODO, UPDATE_TODO, DELETE_TODO, DELETE_ALL_COMPLETED_TODOS } from './todo.actions';
 import { Todo } from './model/todo.model';
 
-const todo1 = new Todo('Vencer a Thanos');
-const todo2 = new Todo('Salvar el mundo');
-const todo3 = new Todo('Tony Stark vs el mundo');
+const todo1 = new Todo('Defeat Thanos');
+const todo2 = new Todo('Save the world');
+const todo3 = new Todo('Bring everyone back');
 
 todo1.complete = true;
 
